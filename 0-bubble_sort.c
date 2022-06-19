@@ -3,7 +3,7 @@
 /**
  * swap - Swap to values 
  * 
- * @eft: value on the left.
+ * @left: value on the left.
  * @right: value on the right.
  * 
  * Description: Takes to values and exchange
