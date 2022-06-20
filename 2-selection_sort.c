@@ -29,6 +29,9 @@ void swap(int *left, int *right)
  */
 void selection_sort(int *array, size_t size)
 {
+    if (!array || size < 2)
+        return;
+
     size_t i = 0, j = 0, jmin = 0;
 
     for (; i < size-1; i++)
