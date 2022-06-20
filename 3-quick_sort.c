@@ -2,15 +2,15 @@
 
 /**
  * partition - Function defines and sets a pivot for array splitting.
- * 
- * @array: array to split. 
+ *
+ * @array: array to split.
  * @low: index of first element.
  * @high: index of last element.
  * @size: array size.
- * 
+ *
  * Description: takes an array and finds a pivot element
  * according to lomuto's scheme.
- * 
+ *
  * Return: index of split pivot element.
  */
 size_t partition(int *array, ssize_t low, ssize_t high, size_t size)
@@ -48,14 +48,14 @@ size_t partition(int *array, ssize_t low, ssize_t high, size_t size)
 
 /**
  * q_sort - Function that sorts an array of integers.
- * 
+ *
  * @array: array to sort.
  * @low: first element index.
  * @high: last element index
  * @size: size of the array.
- * 
+ *
  * Description: sorts each part of a partitioned array.
- * 
+ *
  */
 void q_sort(int *array, ssize_t low, ssize_t high, size_t size)
 {
@@ -71,10 +71,10 @@ void q_sort(int *array, ssize_t low, ssize_t high, size_t size)
 
 /**
  * quick_sort - Function that make a call to quick sort.
- * 
+ *
  * @array: array to sort.
  * @size: size of the array.
- * 
+ *
  * Description: checks that the array has more than 2 elements
  * and call the quick sort function.
  */
