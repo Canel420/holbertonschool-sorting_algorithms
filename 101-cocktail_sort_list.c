@@ -4,27 +4,24 @@
  * swap - Swap nodes in a doubly linked list.
  *
  * @list: doubly linked head of list.
- * @node1: first node to swap.
- * @node2: second node to swap.
+ * @node: node to swap.
  *
  * Description: swaps two nodes exchanging its
  * connections to other nodes in list.
  */
 
-void swap(listint_t **list, listint_t *node1, listint_t *node2)
+void swap(listint_t **list, listint_t *node)
 {
-
-	if (node1->prev != NULL)
-		(node1->prev)->next = node2;
+	node->next->prev = node->prev;
+	if (node->prev)
+		node->prev->next = node->next;
 	else
-		*list = node2;
-	node2->prev = node1->prev;
-	node1->next = node2->next;
-	node1->prev = node2;
-	node2->next = node1;
-
-	if (node2->next != NULL)
-		(node2->next)->prev = node1;
+		*list = node->next;
+	node->prev = node->next;
+	node->next = node->next->next;
+	node->prev->next = node;
+	if (node->next)
+		node->next->prev = node;
 }
 
 /**
@@ -40,7 +37,7 @@ void cocktail_sort_list(listint_t **list)
 	int swapped = 1;
 	listint_t *tmp = NULL;
 
-	if (!list || *list == NULL)
+	if (!list || !(*list) || (!((*list)->prev) && !((*list)->next)))
 		return;
 
 	tmp = *list;
@@ -52,7 +49,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if ((tmp->next)->n < tmp->n)
 			{
-				swap(list, tmp, tmp->next);
+				swap(list, tmp);
 				swapped = 1;
 				print_list(*list);
 			}
@@ -67,7 +64,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if ((tmp->prev)->n > tmp->n)
 			{
-				swap(list, tmp, tmp->prev);
+				swap(list, tmp->prev);
 				swapped = 1;
 				print_list(*list);
 			}
