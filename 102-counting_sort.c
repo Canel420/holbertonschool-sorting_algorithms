@@ -9,7 +9,6 @@
  * Description: sorts an array using counting sorting.
  *
  */
-
 void counting_sort(int *array, size_t size)
 {
 	int max = array[0], *count = NULL, *output = NULL, j = 0;
