@@ -80,6 +80,9 @@ void merge_sort(int *array, size_t size)
 	int *copy = NULL;
 	size_t i = 0;
 
+	if (!array || size < 2)
+		return;
+
 	copy = malloc(size * sizeof(int));
 	if (copy == NULL)
 		return;
